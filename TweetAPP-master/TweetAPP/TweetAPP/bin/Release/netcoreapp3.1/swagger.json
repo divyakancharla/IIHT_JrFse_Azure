@@ -1,0 +1,272 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "TWEET APP",
+    "description": "Tweet API",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/v1.0/tweets/PostTweet": {
+      "post": {
+        "tags": [
+          "TweetApp"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Tweet"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1.0/tweets/UserTweets/{username}": {
+      "get": {
+        "tags": [
+          "TweetApp"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "username",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1.0/tweets/AllUserTweets/{username}": {
+      "get": {
+        "tags": [
+          "TweetApp"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "username",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1.0/tweets/UserLogin/{username}/{password}": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "username",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "password",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1.0/tweets/UserRegister": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1.0/tweets/resetpassword/{username}/{oldpassword}/{newPassword}": {
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "username",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "oldpassword",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "newPassword",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1.0/tweets/ForgotPassword/{emailId}/{newPassword}": {
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "emailId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "newPassword",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Tweet": {
+      "required": [
+        "tweets"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        },
+        "tweets": {
+          "maxLength": 144,
+          "minLength": 0,
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "tweetDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "likes": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "User": {
+      "required": [
+        "contactNumber",
+        "emailId",
+        "firstName",
+        "imageName",
+        "password",
+        "username"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "firstName": {
+          "maxLength": 20,
+          "minLength": 0,
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "contactNumber": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        },
+        "emailId": {
+          "format": "email",
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "imageName": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

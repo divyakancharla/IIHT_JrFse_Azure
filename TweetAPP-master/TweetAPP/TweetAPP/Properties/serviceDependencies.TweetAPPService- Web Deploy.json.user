@@ -1,0 +1,25 @@
+{
+  "dependencies": {},
+  "parameters": {
+    "TweetAPP20210604135724.resourceGroupName": {
+      "Type": "resourceGroup",
+      "Value": "tweetappaccountResourceGroup"
+    },
+    "TweetAPP20210604135724.resourceName": {
+      "Type": null,
+      "Value": "TweetAPP20210604135724"
+    },
+    "TweetAPP20210604135724.subscriptionId": {
+      "Type": "subscription",
+      "Value": "33cde6b4-021e-42bf-b2a2-14536b19310c"
+    },
+    "TweetAPP20210604135724.resourceGroupLocation": {
+      "Type": null,
+      "Value": "australiacentral"
+    },
+    "subscriptionId": {
+      "Type": "subscription",
+      "Value": "33cde6b4-021e-42bf-b2a2-14536b19310c"
+    }
+  }
+}
